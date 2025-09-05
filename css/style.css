@@ -1,0 +1,134 @@
+/* ===== Global ===== */
+body {
+  background-color: #232B59; /* Azul oscuro principal */
+  color: #ffffff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+p {
+  color: #70778C; /* Gris para texto secundario */
+}
+
+a {
+  text-decoration: none;
+  color: #F27B35; /* Links en naranja */
+}
+
+a:hover {
+  color: #D96236; /* Hover en rojo/naranja fuerte */
+}
+
+/* ===== Header ===== */
+header {
+  background-color: #253259 !important; /* Azul intermedio */
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+header .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+}
+
+header .nav-link:hover {
+  color: #F27B35 !important; /* Hover naranja */
+}
+
+/* ===== Hero Section ===== */
+#hero {
+  background: linear-gradient(rgba(35, 43, 89, 0.9), rgba(35, 43, 89, 0.9)), 
+              url('../img/hero-bg.png') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+#hero p {
+  font-size: 1.25rem;
+  color: #70778C; /* Texto gris */
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+#hero .btn {
+  background-color: #F27B35; /* Botón naranja */
+  border: none;
+  color: #fff;
+}
+#hero .btn:hover {
+  background-color: #D96236; /* Hover rojo/naranja fuerte */
+}
+
+/* ===== Features Section ===== */
+#features {
+  background-color: #5a5a5a; /**/
+  color: #fff;
+}
+
+#features h5 {
+  color: #F27B35; /* Subtítulos en naranja */
+}
+
+#features p {
+  color: #ffffff; /* */
+}
+
+#features .col-md-3:hover {
+  transform: translateY(-8px);
+}
+/* ===== Features Images ===== */
+.feature-img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ===== Services Section ===== */
+#services {
+  background-color: #232B59;
+}
+
+#services h2 {
+  color: #fff;
+}
+#services h5 {
+  font-weight: 600;
+  color: #F27B35;
+}
+#services p {
+  color: #70778C;
+}
+
+/* ===== Contact Section ===== */
+#contact {
+  background-color: #253259;
+}
+
+#contact h2 {
+  color: #fff;
+}
+#contact p {
+  color: #F27B35; /* Datos de contacto en naranja */
+}
+
+/* ===== Footer ===== */
+#footer {
+  background-color: #232B59;
+  color: #70778C;
+}
+#footer p {
+  margin: 0;
+  color: #70778C;
+}

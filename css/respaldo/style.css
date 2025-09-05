@@ -1,0 +1,103 @@
+/* ===== Global ===== */
+body {
+  background-color: #19265b;
+  color: #ffffff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== Header ===== */
+header {
+  background-color: #19265b !important;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+header .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+}
+
+header .nav-link:hover {
+  color: #f0ad4e !important; /* opcional: dorado para hover */
+}
+
+/* ===== Hero Section ===== */
+#hero {
+  background: linear-gradient(rgba(24, 37, 79, 0.85), rgba(24, 37, 79, 0.85)), 
+              url('../img/hero-bg.png') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+#hero p {
+  font-size: 1.25rem;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* ===== Features Section ===== */
+#features .col-md-3 {
+  transition: transform 0.3s ease;
+}
+#features .col-md-3:hover {
+  transform: translateY(-8px);
+}
+
+/* ===== Features Images ===== */
+.feature-img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ===== Services Section ===== */
+#services h5 {
+  font-weight: 600;
+}
+
+/* ===== Contact Section ===== */
+#contact {
+  background-color: #19265b;
+}
+
+#footer {
+    color: #f0ad4e;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Scroll Animation ===== */
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease-out;
+}
+.fade-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
