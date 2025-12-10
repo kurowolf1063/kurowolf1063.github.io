@@ -1,27 +1,9 @@
 /* ===== Global ===== */
 body {
-  background-color: #232B59; /* Azul oscuro principal */
+  background-color: #4352a7; /* Azul oscuro principal */
   color: #ffffff;
   font-family: 'Montserrat', Arial, sans-serif;
   line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5 {
-  font-weight: 700;
-  color: #ffffff;
-}
-
-p {
-  color: #70778C; /* Gris para texto secundario */
-}
-
-a {
-  text-decoration: none;
-  color: #F27B35; /* Links en naranja */
-}
-
-a:hover {
-  color: #D96236; /* Hover en rojo/naranja fuerte */
 }
 
 /* ===== Header ===== */
@@ -41,39 +23,147 @@ header .nav-link:hover {
   color: #F27B35 !important; /* Hover naranja */
 }
 
-/* ===== Hero Section ===== */
-#hero {
-  background: linear-gradient(rgba(35, 43, 89, 0.9), rgba(35, 43, 89, 0.9)), 
-              url('../img/hero-bg.png') center/cover no-repeat;
-  color: #fff;
+/* ===== Hero Section Mejorada ===== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 85vh; /* <<< Ajusta entre 70vh - 100vh según cuánto camión quieras mostrar */
+  background: url('../img/hero-bg.png') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  overflow: hidden;
 }
 
-#hero h1 {
-  font-size: 3rem;
+/* Overlay suave para no oscurecer demasiado la imagen */
+.hero-section .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
+}
+
+/* Contenido del Hero */
+.hero-section .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 800px;
+}
+
+/* Título */
+.hero-section h1 {
+  font-size: 3.2rem;
   font-weight: 700;
   animation: fadeInDown 1s ease-in-out;
 }
 
-#hero p {
-  font-size: 1.25rem;
-  color: #70778C; /* Texto gris */
+/* Subtítulo */
+.hero-section p {
+  font-size: 1.3rem;
+  color: #e5e7f0; /* gris suave para mejor lectura */
   animation: fadeInUp 1.2s ease-in-out;
 }
 
-#hero .btn {
-  background-color: #F27B35; /* Botón naranja */
+/* Botón */
+.hero-btn {
+  background-color: #F27B35;
   border: none;
+  padding: 12px 30px;
+  font-weight: 600;
   color: #fff;
+  border-radius: 8px;
+  transition: 0.3s ease;
 }
-#hero .btn:hover {
-  background-color: #D96236; /* Hover rojo/naranja fuerte */
+
+.hero-btn:hover {
+  background-color: #d96236;
+  transform: translateY(-3px);
 }
+
+/* Ajustes móviles */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-section p {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===== STATS SECTION ===== */
+#stats {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("img/fondo_stats.jpg") center/cover no-repeat;
+}
+
+/* Iconos estándar */
+.stat-icon {
+  /*border: 2px solid red !important;*/
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* ========= 1) CAMIÓN ANIMADO (Kilómetros) ========= */
+.truck-icon {
+  background-image: url("../img/truck.png"); /* tu icono */
+  animation: truckMove 3s ease-in-out infinite;
+}
+
+@keyframes truckMove {
+  0% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  100% { transform: translateX(-6px); }
+}
+
+/* ========= 2) PAQUETE ENTRE MANOS (Entregas) ========= */
+.package-icon {
+  background-image: url("../img/package.png");
+  animation: packageSwap 2s ease-in-out infinite;
+}
+
+@keyframes packageSwap {
+  0% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-6px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+/* ========= 3) CLIENTE FELIZ (Clientes satisfechos) ========= */
+.happy-icon {
+  background-image: url("../img/happy.png");
+  animation: happyJump 1.8s ease-in-out infinite;
+}
+
+@keyframes happyJump {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+  60% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
 
 /* ===== Features Section ===== */
 #features {
-  background-color: #5a5a5a; /**/
-  color: #fff;
+  background-color: #ffffff; /**/
+  color: #F27B35;
+}
+#features h2 {
+  color: #F27B35; /* Títulos en azul oscuro */
 }
 
 #features h5 {
@@ -81,12 +171,25 @@ header .nav-link:hover {
 }
 
 #features p {
-  color: #ffffff; /* */
+  color: #8d8d8d; /* */
+}
+
+#features .col-md-3:hover {
+  transform: translateY(-8px);
+}/* ===== Features Section ===== */
+#features {
+  background-color: #ffffff; /**/
+  color: #253259;
+}
+
+#features p {
+  color: #8d8d8d; /* */
 }
 
 #features .col-md-3:hover {
   transform: translateY(-8px);
 }
+
 /* ===== Features Images ===== */
 .feature-img {
   max-width: 100%;
@@ -97,11 +200,11 @@ header .nav-link:hover {
 
 /* ===== Services Section ===== */
 #services {
-  background-color: #232B59;
+  background-color: #253259;
 }
 
 #services h2 {
-  color: #fff;
+  color: #F27B35;
 }
 #services h5 {
   font-weight: 600;
@@ -117,18 +220,135 @@ header .nav-link:hover {
 }
 
 #contact h2 {
-  color: #fff;
+  color: #F27B35;
 }
 #contact p {
-  color: #F27B35; /* Datos de contacto en naranja */
+  color: #fff; /* Datos de contacto en naranja */
 }
 
-/* ===== Footer ===== */
-#footer {
-  background-color: #232B59;
-  color: #70778C;
+/* ----- Animaciones de Entrada (Slide-In) ----- */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Modificación de la clase base de scroll */
+.fade-scroll {
+  opacity: 0;
+  transition: opacity 0.5s ease-out; /* Transición por defecto más suave */
+}
+
+.fade-scroll.visible {
+  opacity: 1;
+}
+
+/* Clases específicas para el efecto de entrada lateral */
+.slide-in-left.visible {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.slide-in-right.visible {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+/* Aplicar la clase fade-scroll (y sus animaciones) a la columna de features al hacer hover */
+#features .col-md-3 {
+  transition: transform 0.3s ease-in-out;
+}
+/* Tarjetas de servicios */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #eaeaea;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Íconos */
+.icon-service {
+  font-size: 55px;
+  color: #007bff; /* puedes cambiar el color corporativo */
+  transition: 0.3s ease;
+}
+
+.service-card:hover .icon-service {
+  transform: scale(1.1);
+}
+
+/* Botón corporativo */
+.btn-service {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-service:hover {
+  background: #0056d2;
+}
+
+/* Animaciones adicionales si quieres hacerlas más suaves */
+.slide-in-left {
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: 0.7s ease-out;
+}
+
+.slide-in-right {
+  transform: translateX(50px);
+  opacity: 0;
+  transition: 0.7s ease-out;
+}
+
+.fade-visible {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+
+/* ===== Footer - Estilos de Visibilidad y Color Forzados ===== */
+#footer {
+  /* ¡FORZAMOS EL NUEVO COLOR DE FONDO! */
+  background-color: #343a40 !important; /* Gris oscuro */
+  
+  /* FORZAMOS EL COLOR DE TEXTO GENERAL */
+  color: #cccccc !important; 
+  
+  /* Asegura que tenga altura aunque esté vacío */
+  min-height: 80px !important; 
+  padding: 20px 0 !important; /* Asegura un espaciado interno */
+}
+
 #footer p {
   margin: 0;
-  color: #70778C;
+  /* FORZAMOS EL COLOR DEL TEXTO DEL PÁRRAFO */
+  color: #ffffff !important; 
 }
+/* Fin de style.css */
