@@ -1,354 +1,414 @@
-/* ===== Global ===== */
+:root {
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+    --dark: #0a2540;
+    --text: #4a5568;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  background-color: #4352a7; /* Azul oscuro principal */
-  color: #ffffff;
-  font-family: 'Montserrat', Arial, sans-serif;
-  line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--white);
 }
 
-/* ===== Header ===== */
-header {
-  background-color: #253259 !important; /* Azul intermedio */
-  position: sticky;
-  top: 0;
-  z-index: 1030;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-header .nav-link {
-  color: #fff !important;
-  font-weight: 500;
+/* HEADER */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #edf2f7;
 }
 
-header .nav-link:hover {
-  color: #F27B35 !important; /* Hover naranja */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
 }
 
-/* ===== Hero Section Mejorada ===== */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 85vh; /* <<< Ajusta entre 70vh - 100vh según cuánto camión quieras mostrar */
-  background: url('../img/hero-bg.png') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--dark);
+    letter-spacing: 1px;
 }
 
-/* Overlay suave para no oscurecer demasiado la imagen */
-.hero-section .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.25),
-      rgba(0, 0, 0, 0.55)
-  );
-  z-index: 1;
+.logo-bold {
+    font-weight: 800;
+    color: var(--primary);
 }
 
-/* Contenido del Hero */
-.hero-section .hero-content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  max-width: 800px;
+.nav-menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
 }
 
-/* Título */
-.hero-section h1 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  animation: fadeInDown 1s ease-in-out;
+.nav-menu a:hover {
+    color: var(--primary);
 }
 
-/* Subtítulo */
-.hero-section p {
-  font-size: 1.3rem;
-  color: #e5e7f0; /* gris suave para mejor lectura */
-  animation: fadeInUp 1.2s ease-in-out;
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
 }
 
-/* Botón */
-.hero-btn {
-  background-color: #F27B35;
-  border: none;
-  padding: 12px 30px;
-  font-weight: 600;
-  color: #fff;
-  border-radius: 8px;
-  transition: 0.3s ease;
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
 }
 
-.hero-btn:hover {
-  background-color: #d96236;
-  transform: translateY(-3px);
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
-/* Ajustes móviles */
+.btn-outline {
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--dark);
+}
+
+.btn-light {
+    background: var(--white);
+    color: var(--primary);
+}
+
+.btn-small {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)), 
+                url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=1600') center/cover;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding-bottom: 100px;
+    padding-top: 80px;
+}
+
+.badge {
+    background: rgba(0, 123, 255, 0.2);
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.hero-text {
+    margin-bottom: 60px; /* Esto empuja todo el bloque de texto y botones hacia arriba */
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px; /* Usar gap es mejor que margin-right en los botones */
+}
+
+.hero-content {
+    position: relative; /* Ya lo tenías, pero asegúrate */
+    z-index: 20;        /* Añade esto: lo pone por encima del overlay y del trust */
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.text-blue { color: var(--primary); }
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+/* TRUST METRICS */
+.trust {
+    position: relative;
+    z-index: 10; /* El trust queda por debajo del hero-content */
+    margin-top: -80px; /* Cambiamos transform por un margen negativo fijo */
+    margin-bottom: 40px;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.metric-card {
+    text-align: center;
+    border-right: 1px solid #eee;
+}
+
+.metric-card:last-child { border: none; }
+
+.metric-card h3 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+/* SECTIONS */
+.section { padding: 100px 0; }
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.underline {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 15px auto;
+}
+
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    padding: 40px;
+    background: var(--light-bg);
+    border-radius: 12px;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    background: var(--white);
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* PROCESS */
+.process {
+    background: linear-gradient(135deg, #0a2540 0%, #051421 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    position: relative;
+}
+
+.step {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+/* El círculo del icono */
+.step-icon-wrap {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 123, 255, 0.3);
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: var(--transition);
+}
+
+.step-icon-wrap i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--primary);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 3px solid #0a2540;
+}
+
+.step h4 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.step p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+/* La línea conectora (Solo para Desktop) */
+@media (min-width: 992px) {
+    .step:not(:last-child)::after {  /* <--- Esto es la clave */
+        display: none !important;
+        content: none !important;
+        position: absolute;
+        top: 70px; 
+        left: 60%;
+        width: 80%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), transparent);
+        z-index: -1;
+        opacity: 0.3;
+        pointer-events: none; /* Esto evita que el mouse la "detecte" al pasar por encima */
+    }
+}
+
+/* Efecto Hover */
+.step:hover .step-icon-wrap {
+    background: var(--primary);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.4);
+}
+
+.step:hover .step-icon-wrap i {
+    color: white;
+}
+
+.step:hover p {
+    opacity: 1;
+}
+
+/* COBERTURA */
+.section-cobertura {
+    padding: 80px 0;
+    background: #f1f5f9;
+    text-align: center;
+}
+
+.cobertura-box {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.cobertura-box i {
+    font-size: 3rem;
+    color: #e53e3e;
+    margin-bottom: 20px;
+}
+
+/* CTA */
+.cta {
+    background: var(--primary);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta-content h2 { font-size: 2.5rem; margin-bottom: 15px; }
+.cta-content p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+
+/* FOOTER */
+.footer {
+    background: var(--dark);
+    color: var(--white);
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-  .hero-section {
-    height: 70vh;
-  }
-
-  .hero-section h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-section p {
-    font-size: 1.1rem;
-  }
+    .nav-menu { display: none; }
+    .hero { text-align: center; height: auto; padding: 100px 0; }
+    .hero-text { margin: 0 auto; }
+    .trust { transform: none;      /* Quita el desplazamiento en móviles */
+        margin-bottom: 40px;
+        margin-top: -20px;    /* Un toque sutil nada más */}
+    .metric-card { border: none; margin-bottom: 20px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
 }
-
-/* ===== STATS SECTION ===== */
-#stats {
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ),
-    url("img/fondo_stats.jpg") center/cover no-repeat;
-}
-
-/* Iconos estándar */
-.stat-icon {
-  /*border: 2px solid red !important;*/
-  width: 125px;
-  height: 125px;
-  margin: 0 auto 15px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-/* ========= 1) CAMIÓN ANIMADO (Kilómetros) ========= */
-.truck-icon {
-  background-image: url("../img/truck.png"); /* tu icono */
-  animation: truckMove 3s ease-in-out infinite;
-}
-
-@keyframes truckMove {
-  0% { transform: translateX(-6px); }
-  50% { transform: translateX(6px); }
-  100% { transform: translateX(-6px); }
-}
-
-/* ========= 2) PAQUETE ENTRE MANOS (Entregas) ========= */
-.package-icon {
-  background-image: url("../img/package.png");
-  animation: packageSwap 2s ease-in-out infinite;
-}
-
-@keyframes packageSwap {
-  0% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-6px) rotate(3deg); }
-  100% { transform: translateY(0) rotate(0); }
-}
-
-/* ========= 3) CLIENTE FELIZ (Clientes satisfechos) ========= */
-.happy-icon {
-  background-image: url("../img/happy.png");
-  animation: happyJump 1.8s ease-in-out infinite;
-}
-
-@keyframes happyJump {
-  0% { transform: translateY(0); }
-  30% { transform: translateY(-10px); }
-  60% { transform: translateY(0); }
-  100% { transform: translateY(0); }
-}
-
-
-/* ===== Features Section ===== */
-#features {
-  background-color: #ffffff; /**/
-  color: #F27B35;
-}
-#features h2 {
-  color: #F27B35; /* Títulos en azul oscuro */
-}
-
-#features h5 {
-  color: #F27B35; /* Subtítulos en naranja */
-}
-
-#features p {
-  color: #8d8d8d; /* */
-}
-
-#features .col-md-3:hover {
-  transform: translateY(-8px);
-}/* ===== Features Section ===== */
-#features {
-  background-color: #ffffff; /**/
-  color: #253259;
-}
-
-#features p {
-  color: #8d8d8d; /* */
-}
-
-#features .col-md-3:hover {
-  transform: translateY(-8px);
-}
-
-/* ===== Features Images ===== */
-.feature-img {
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-}
-
-/* ===== Services Section ===== */
-#services {
-  background-color: #253259;
-}
-
-#services h2 {
-  color: #F27B35;
-}
-#services h5 {
-  font-weight: 600;
-  color: #F27B35;
-}
-#services p {
-  color: #70778C;
-}
-
-/* ===== Contact Section ===== */
-#contact {
-  background-color: #253259;
-}
-
-#contact h2 {
-  color: #F27B35;
-}
-#contact p {
-  color: #fff; /* Datos de contacto en naranja */
-}
-
-/* ----- Animaciones de Entrada (Slide-In) ----- */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Modificación de la clase base de scroll */
-.fade-scroll {
-  opacity: 0;
-  transition: opacity 0.5s ease-out; /* Transición por defecto más suave */
-}
-
-.fade-scroll.visible {
-  opacity: 1;
-}
-
-/* Clases específicas para el efecto de entrada lateral */
-.slide-in-left.visible {
-  animation: slideInLeft 1s ease-out forwards;
-}
-
-.slide-in-right.visible {
-  animation: slideInRight 1s ease-out forwards;
-}
-
-/* Aplicar la clase fade-scroll (y sus animaciones) a la columna de features al hacer hover */
-#features .col-md-3 {
-  transition: transform 0.3s ease-in-out;
-}
-/* Tarjetas de servicios */
-.service-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-  border: 1px solid #eaeaea;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-/* Íconos */
-.icon-service {
-  font-size: 55px;
-  color: #007bff; /* puedes cambiar el color corporativo */
-  transition: 0.3s ease;
-}
-
-.service-card:hover .icon-service {
-  transform: scale(1.1);
-}
-
-/* Botón corporativo */
-.btn-service {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  background: #007bff;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.btn-service:hover {
-  background: #0056d2;
-}
-
-/* Animaciones adicionales si quieres hacerlas más suaves */
-.slide-in-left {
-  transform: translateX(-50px);
-  opacity: 0;
-  transition: 0.7s ease-out;
-}
-
-.slide-in-right {
-  transform: translateX(50px);
-  opacity: 0;
-  transition: 0.7s ease-out;
-}
-
-.fade-visible {
-  transform: translateX(0) !important;
-  opacity: 1 !important;
-}
-
-/* ===== Footer - Estilos de Visibilidad y Color Forzados ===== */
-#footer {
-  /* ¡FORZAMOS EL NUEVO COLOR DE FONDO! */
-  background-color: #343a40 !important; /* Gris oscuro */
-  
-  /* FORZAMOS EL COLOR DE TEXTO GENERAL */
-  color: #cccccc !important; 
-  
-  /* Asegura que tenga altura aunque esté vacío */
-  min-height: 80px !important; 
-  padding: 20px 0 !important; /* Asegura un espaciado interno */
-}
-
-#footer p {
-  margin: 0;
-  /* FORZAMOS EL COLOR DEL TEXTO DEL PÁRRAFO */
-  color: #ffffff !important; 
-}
-/* Fin de style.css */
