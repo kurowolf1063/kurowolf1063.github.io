@@ -60,6 +60,13 @@ body {
     color: var(--primary);
 }
 
+.logo-img {
+    height: 60px; /* Ajusta esta altura según el diseño de tu logo */
+    width: auto;  /* Mantiene la proporción */
+    display: block;
+    transition: var(--transition);
+}
+
 .nav-menu a {
     margin: 0 15px;
     text-decoration: none;
