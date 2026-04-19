@@ -23,7 +23,7 @@
             <a href="#cobertura">Cobertura</a>
         </nav>
 
-        <a href="https://wa.me/56993586738" class="btn btn-primary btn-small">
+        <a href="#" class="btn btn-primary btn-small open-modal">
             Cotizar Ahora <i class="fa-solid fa-chevron-right"></i>
         </a>
     </div>
@@ -37,7 +37,7 @@
             <p>Especialistas en crossdocking y transporte B2B desde Santiago hacia la 7ª y 8ª región. Optimizamos tu cadena de suministro con seguridad garantizada.</p>
             
             <div class="hero-buttons">
-                <a href="https://wa.me/56993586738" class="btn btn-primary">Iniciar Cotización</a>
+                <a href="#" class="btn btn-primary open-modal">Iniciar Cotización</a>
                 <a href="#servicios" class="btn btn-outline">Explorar Servicios</a>
             </div>
         </div>
@@ -176,7 +176,7 @@
         <div class="cta-content">
             <h2>¿Listo para optimizar tu logística?</h2>
             <p>Únete a las empresas que ya confían en nuestra red de distribución.</p>
-            <a href="https://wa.me/56993586738" class="btn btn-light btn-big">Hablar con un experto</a>
+            <a href="#" class="btn btn-light btn-big open-modal">Hablar con un experto</a>
         </div>
     </div>
 </section>
@@ -199,6 +199,76 @@
         </div>
     </div>
 </footer>
+
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+            <h3>Verificación de Seguridad</h3>
+            <p>Por favor, resuelve esta operación para contactarnos.</p>
+        </div>
+        
+        <div class="captcha-box">
+            <span id="captcha-question"></span>
+            <input type="number" id="captcha-answer" placeholder="?">
+        </div>
+
+        <div class="modal-options" id="modal-options" style="display: none;">
+            <a href="https://wa.me/56995036225?text=Hola,%20solicito%20cotización..." class="modal-btn whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp Corporativo</span>
+            </a>
+            <a href="mailto:contacto@transluzar.cl?subject=Cotización%20B2B" class="modal-btn email">
+                <i class="fa-solid fa-envelope"></i> <span>Correo Electrónico</span>
+            </a>
+        </div>
+        <p id="captcha-error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 10px; display: none;">Respuesta incorrecta, intenta de nuevo.</p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("contactModal");
+const openBtns = document.querySelectorAll(".open-modal");
+const closeBtn = document.querySelector(".close-modal");
+const captchaQuestion = document.getElementById("captcha-question");
+const captchaAnswer = document.getElementById("captcha-answer");
+const modalOptions = document.getElementById("modal-options");
+const captchaError = document.getElementById("captcha-error");
+
+let correctAnswer;
+
+// Función para generar nueva suma
+function generateCaptcha() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    correctAnswer = num1 + num2;
+    captchaQuestion.innerText = `¿Cuánto es ${num1} + ${num2}?`;
+    captchaAnswer.value = "";
+    modalOptions.style.display = "none";
+    captchaError.style.display = "none";
+}
+
+openBtns.forEach(btn => {
+    btn.onclick = function(e) {
+        e.preventDefault();
+        generateCaptcha(); // Generamos una suma nueva cada vez que abren el modal
+        modal.style.display = "flex";
+    }
+});
+
+// Validar respuesta en tiempo real
+captchaAnswer.oninput = function() {
+    if (parseInt(captchaAnswer.value) === correctAnswer) {
+        modalOptions.style.display = "flex";
+        captchaError.style.display = "none";
+        document.querySelector('.captcha-box').style.borderColor = "#25D366";
+    } else if (captchaAnswer.value.length >= 2) {
+        captchaError.style.display = "block";
+    }
+}
+
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+</script>
 
 </body>
 </html>
