@@ -412,3 +412,54 @@ body {
     .metric-card { border: none; margin-bottom: 20px; }
     .footer-grid { grid-template-columns: 1fr; gap: 30px; }
 }
+
+.route-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.route-node {
+    text-align: center;
+    flex: 1;
+}
+
+.route-node i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    background: var(--light-bg);
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: var(--transition);
+}
+
+.route-node span {
+    display: block;
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.route-line {
+    flex: 1;
+    height: 2px;
+    background: #e2e8f0;
+    margin-bottom: 30px; /* Alineado con los iconos */
+}
+
+@media (max-width: 768px) {
+    .route-display {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .route-line {
+        width: 2px;
+        height: 40px;
+        margin: 0 auto;
+    }
+}
