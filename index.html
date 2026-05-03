@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRVeriPass | Seguridad Corporativa</title>
+    <link rel="icon" type="image/png" href="img/01logo.png">
+    <link rel="apple-touch-icon" href="img/01logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-container">
+        <!-- Reemplaza 'logo-horizontal.png' con la ruta de tu archivo descargado -->
+        <img src="img/00logo.png" alt="QRVeriPass Logo" class="logo-img">
+    </div>
+    <ul class="nav-links">
+        <li><a href="#soluciones">Soluciones</a></li>
+        <li><a href="#seguridad">Seguridad</a></li>
+        <li><a href="#demo">Simulador</a></li>
+        <li><a href="#" class="btn-nav open-modal">Contacto</a></li>
+    </ul>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>Control de Acceso <br><span class="text-gradient">Inteligente y Seguro</span></h1>
+        <p>Proteja sus oficinas y bodegas con validación QR en tiempo real. Integración directa con cerraduras electrónicas y registros de auditoría avanzada.</p>
+        <div class="hero-btns">
+            <button class="btn-primary" onclick="scrollToDemo()">Probar Simulador</button>
+            <button class="btn-secondary open-modal">Saber más</button>
+        </div>
+    </div>
+</header>
+
+<section id="seguridad" class="section">
+    <div class="container">
+        <h2 class="section-title">Protección de Nivel Industrial</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">🛡️</div>
+                <h3>Validación por Nivel</h3>
+                <p>El sistema consulta la base de datos para confirmar si el usuario tiene el rango de acceso permitido para esa puerta específica.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🚨</div>
+                <h3>Detección de Fraude</h3>
+                <p>Cualquier intento fallido queda registrado con marca de tiempo, permitiendo la auditoría inmediata de cámaras de seguridad.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Apertura Instantánea</h3>
+                <p>Envío de pulso momentáneo para sistemas de cierre automático, optimizando el flujo en áreas de carga.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="demo" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Simulador de Acceso</h2>
+        <p class="section-description">Seleccione un escenario para ver cómo responde QRVeriPass</p>
+        
+        <div class="demo-container">
+            <div class="terminal">
+                <div class="terminal-header">Sistema QRVeriPass v1.0 - Estado: <span id="status-text">ESPERANDO SCAN...</span></div>
+                <div id="terminal-body" class="terminal-body">
+                    > Esperando entrada de datos...
+                </div>
+            </div>
+
+            <div class="visual-access">
+                <div id="scanner-line" class="scanner"></div>
+                <div id="door-frame" class="door-frame">
+                    <div id="door" class="door"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn-demo success" onclick="simulateAccess(true)">Acceso Válido (Bodega u Oficina)</button>
+                <button class="btn-demo danger" onclick="simulateAccess(false)">Intento Fraudulento</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2026 QRVeriPass Chile. Todos los derechos reservados.</p>
+</footer>
+
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+            <h3>Verificación de Seguridad</h3>
+            <p>Por favor, resuelve esta operación para contactarnos.</p>
+        </div>
+        
+        <div class="captcha-box">
+            <span id="captcha-question"></span>
+            <input type="number" id="captcha-answer" placeholder="?">
+        </div>
+
+        <div class="modal-options" id="modal-options" style="display: none;">
+            <a href="https://wa.me/56968289001?text=Hola,%20solicito%20cotización..." class="modal-btn whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp Corporativo</span>
+            </a>
+            <a href="mailto:kurowolf1063@gmail.com?subject=Cotización%20B2B" class="modal-btn email">
+                <i class="fa-solid fa-envelope"></i> <span>Correo Electrónico</span>
+            </a>
+        </div>
+        <p id="captcha-error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 10px; display: none;">Respuesta incorrecta, intenta de nuevo.</p>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
