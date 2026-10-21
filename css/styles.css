@@ -177,6 +177,10 @@ code { font-family: var(--mono); background: var(--surface); padding: .1em .4em;
 .cert-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: .4rem 1.4rem; }
 .cert-list li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); font-weight: 500; }
 .cert-list li:last-child { border-bottom: 0; }
+.cert-list li { align-items: center; }
+.cert-list li > div { flex: 1 1 220px; }
+.cert-list small { display: block; margin-top: .15rem; font-family: var(--mono); font-size: .75rem; font-weight: 400; color: var(--muted); }
+.cert-link { font-family: var(--mono); font-size: .78rem; font-weight: 500; white-space: nowrap; }
 .pending { font-style: normal; font-family: var(--mono); font-size: .75rem; color: var(--warn); }
 
 /* Projects */
