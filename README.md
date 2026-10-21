@@ -1,6 +1,6 @@
 # Portafolio web — John Riquelme Morales
 
-Sitio estático (HTML5 + CSS3 + JavaScript vanilla), sin compilación ni dependencias de pago, listo para GitHub Pages.
+Sitio estático (HTML5 + CSS3 + JavaScript vanilla)
 
 ## Estructura
 
